@@ -1,6 +1,6 @@
 package part_1_2;
 
-import java.util.Random;
+
 /**
  * TestingField is a class used to test the MyHashTable.
  * It contains a custom hashCode method to ensure uniform distribution.
