@@ -1,3 +1,4 @@
+package part_1_1;
 import java.util.Random;
 
 public class MyHashTable<K, V> {
@@ -124,3 +125,4 @@ public class MyHashTable<K, V> {
         }
     }
 }
+
