@@ -1,8 +1,15 @@
 package part_1_1;
 import java.util.Random;
+import java.util.Random;
 
+/**
+ * MyHashTable is a simple implementation of a hash table using separate chaining.
+ * @param <K> the type of keys
+ * @param <V> the type of values
+ */
 public class MyHashTable<K, V> {
 
+    // Inner class representing a node in the chain
     private class HashNode<K, V> {
         private K key;
         private V value;
@@ -23,22 +30,26 @@ public class MyHashTable<K, V> {
     private int M = 11; // default number of chains
     private int size;
 
+    // Default constructor
     public MyHashTable() {
         this.chainArray = (HashNode<K, V>[]) new HashNode[M];
         this.size = 0;
     }
 
+    // Constructor with specified number of chains
     public MyHashTable(int M) {
         this.chainArray = (HashNode<K, V>[]) new HashNode[M];
         this.size = 0;
         this.M = M;
     }
 
+    // Hash function
     private int hash(K key) {
         int hashCode = key.hashCode();
         return Math.abs(hashCode % M);
     }
 
+    // Insert a key-value pair into the hash table
     public void put(K key, V value) {
         int index = hash(key);
         HashNode<K, V> node = chainArray[index];
@@ -55,6 +66,7 @@ public class MyHashTable<K, V> {
         size++;
     }
 
+    // Retrieve the value associated with a given key
     public V get(K key) {
         int index = hash(key);
         HashNode<K, V> node = chainArray[index];
@@ -67,6 +79,7 @@ public class MyHashTable<K, V> {
         return null;
     }
 
+    // Remove a key-value pair from the hash table
     public V remove(K key) {
         int index = hash(key);
         HashNode<K, V> node = chainArray[index];
@@ -87,6 +100,7 @@ public class MyHashTable<K, V> {
         return null;
     }
 
+    // Check if a value exists in the hash table
     public boolean contains(V value) {
         for (int i = 0; i < M; i++) {
             HashNode<K, V> node = chainArray[i];
@@ -100,6 +114,7 @@ public class MyHashTable<K, V> {
         return false;
     }
 
+    // Retrieve the key associated with a given value
     public K getKey(V value) {
         for (int i = 0; i < M; i++) {
             HashNode<K, V> node = chainArray[i];
@@ -113,6 +128,7 @@ public class MyHashTable<K, V> {
         return null;
     }
 
+    // Print the number of elements in each bucket
     public void printBucketSizes() {
         for (int i = 0; i < M; i++) {
             int count = 0;
@@ -125,4 +141,3 @@ public class MyHashTable<K, V> {
         }
     }
 }
-

@@ -1,13 +1,18 @@
 package part_2_1;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * BST is a simple implementation of a binary search tree.
+ * @param <K> the type of keys, must be comparable
+ * @param <V> the type of values
+ */
 public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node> {
     private Node root;
     private int size = 0;
 
+    // Inner class representing a node in the BST
     public class Node {
         private K key;
         private V val;
@@ -27,6 +32,7 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
         }
     }
 
+    // Insert a key-value pair into the BST
     public void put(K key, V val) {
         root = put(root, key, val);
     }
@@ -43,6 +49,7 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
         return x;
     }
 
+    // Retrieve the value associated with a given key
     public V get(K key) {
         Node x = root;
         while (x != null) {
@@ -54,6 +61,7 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
         return null;
     }
 
+    // Delete a key-value pair from the BST
     public void delete(K key) {
         root = delete(root, key);
     }
@@ -86,10 +94,12 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
         return min(x.left);
     }
 
+    // Return the size of the BST
     public int size() {
         return size;
     }
 
+    // Return an iterator for in-order traversal of the BST
     public Iterator<Node> iterator() {
         List<Node> nodes = new ArrayList<>();
         inOrder(root, nodes);

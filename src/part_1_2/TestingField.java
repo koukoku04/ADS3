@@ -1,8 +1,11 @@
 package part_1_2;
 
 import java.util.Random;
-
-class TestingField {
+/**
+ * TestingField is a class used to test the MyHashTable.
+ * It contains a custom hashCode method to ensure uniform distribution.
+ */
+public class TestingField {
     private int id;
 
     public TestingField(int id) {
@@ -30,6 +33,3 @@ class TestingField {
         return id == that.id;
     }
 }
-
-
-

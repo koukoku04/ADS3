@@ -3,10 +3,8 @@ package part_1_2;
 import part_1_1.MyHashTable;
 
 import java.util.Random;
-
 public class Main {
     public static void main(String[] args) {
-
         MyHashTable<TestingField, String> table = new MyHashTable<>();
 
         Random rand = new Random();
